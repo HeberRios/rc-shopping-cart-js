@@ -1,0 +1,8 @@
+.header-section {
+  display: flex;
+  gap: 2rem;
+}
+
+.header-cart-icon {
+  width: 3rem;
+}
