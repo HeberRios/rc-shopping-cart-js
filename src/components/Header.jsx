@@ -1,15 +1,12 @@
+import { CartIcon } from './Icons';
 import { SearchBar } from './SearchBar';
 
 export function Header() {
   return (
-    <header className='header-section'>
+    <header className='header-section container'>
       <div className='main-header-container'>
         <h1>Shopping Cart App</h1>
-        <img
-          src='../../src/assets/icons/shopping-cart.svg'
-          alt='white shopping cart'
-          className='header-cart-icon'
-        />
+        <CartIcon />
       </div>
 
       <SearchBar />

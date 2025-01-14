@@ -1,3 +1,5 @@
+import { SearchIcon } from './Icons';
+
 export function SearchBar() {
   return (
     <form action='' className='product-search-form'>
@@ -10,11 +12,7 @@ export function SearchBar() {
       />
 
       <button type='submit' id='search-button' className='btn search-btn'>
-        <img
-          src='../../src/assets/icons/search.svg'
-          alt='white magnifier'
-          className='search-icon'
-        />
+        <SearchIcon />
       </button>
     </form>
   );
