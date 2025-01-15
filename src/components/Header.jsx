@@ -1,3 +1,4 @@
+import { Filters } from './Filters';
 import { CartIcon } from './Icons';
 import { SearchBar } from './SearchBar';
 
@@ -10,6 +11,8 @@ export function Header() {
       </div>
 
       <SearchBar />
+
+      <Filters />
     </header>
   );
 }
