@@ -3,6 +3,7 @@ import { Products } from './components/Products.jsx';
 import { Header } from './components/Header';
 import './app.css';
 import { useFilters } from './hooks/useFilters.js';
+import { Cart } from './components/Cart.jsx';
 
 const initialProducts = await getAllProducts();
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <>
       <Header />
+      <Cart/>
       <Products products={filteredProducts} />
     </>
   );
