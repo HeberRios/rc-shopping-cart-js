@@ -20,8 +20,11 @@ export function Filters() {
 
   return (
     <section className='filters-container container'>
-      <label htmlFor='price-range'>
-        Starting price:
+      <div className='filter-input-container'>
+        <label htmlFor='price-range'>
+          Starting price:
+          <span className='starting-price'>{filters.minPrice}</span>
+        </label>
         <input
           type='range'
           name='price-range'
@@ -31,10 +34,10 @@ export function Filters() {
           value={filters.minPrice}
           onChange={handlePriceChange}
         />
-      </label>
+      </div>
 
-      <label htmlFor='category:'>
-        Category:
+      <div className='filter-input-container'>
+        <label htmlFor='category:'>Category:</label>
         <select
           name='category'
           id='category'
@@ -47,7 +50,7 @@ export function Filters() {
           <option value='furniture'>Furniture</option>
           <option value='groceries'>Groceries</option>
         </select>
-      </label>
+      </div>
     </section>
   );
 }

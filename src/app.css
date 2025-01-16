@@ -114,11 +114,16 @@ ul {
   gap: 6rem;
 }
 
-.filters-container > label {
+.filter-input-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
+}
+
+.starting-price {
+  padding-left: 0.5rem;
+  font-weight: 700;
 }
 
 /* PRODUCTS STYLES */
