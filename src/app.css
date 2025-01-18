@@ -34,6 +34,8 @@
   --clr-platinum-transparent: #e8e7e8a9;
   --clr-electric-indigo: #711fff;
   --clr-electric-indigo-transparent: #711fffb3;
+  --clr-poppy-red: #e23c47;
+  --clr-poppy-red-transparent: #e23c47b3;
 
   --ff-headers: 'Bungee Shade', system-ui;
   --ff-body-text: 'Chivo Variable', sans-serif;
@@ -63,6 +65,8 @@ ul {
 
 .btn {
   border: none;
+  background-color: transparent;
+  transition: all 0.4s;
 }
 
 /* HEADER STYLES */
@@ -184,12 +188,13 @@ ul {
   position: fixed;
   top: 0;
   right: 0;
-  width: 14.0625rem;
+  width: 250px;
   height: 100%;
   background-color: var(--clr-very-dark-purple);
   border-left: solid 2px var(--clr-platinum);
   display: none;
-  padding: 4rem 1rem 1rem 1rem;
+  padding: 1.5rem;
+  padding-top: 4.75rem;
 }
 
 .cart-label-icon {
@@ -219,4 +224,69 @@ ul {
 
 .cart-check-box:checked ~ .cart {
   display: block;
+}
+
+/* CART ITEM STYLES */
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem 1rem;
+  background-color: var(--clr-bright-purple);
+}
+
+.cart-item > img {
+  max-width: 150px;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.product-price {
+  font-weight: 900;
+}
+
+.cart-item > footer {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cart-item > footer > button:first-child {
+  border-radius: 50%;
+  padding: 0.5rem;
+  background-color: var(--clr-poppy-red);
+}
+
+.cart-item > footer > button:first-child:hover {
+  cursor: pointer;
+  transform: translateY(0.1875rem);
+  background-color: var(--clr-poppy-red-transparent);
+}
+
+.cart-item > footer > .quantity-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.quantity-wrapper > p {
+  font-weight: 900;
+}
+
+.cart-item > footer > button:last-child {
+  border-radius: 50%;
+  padding: 0.5rem;
+  background-color: var(--clr-electric-indigo);
+}
+
+.cart-item > footer > button:last-child:hover {
+  cursor: pointer;
+  transform: translateY(-0.1875rem);
+  background-color: var(--clr-electric-indigo-transparent);
 }
