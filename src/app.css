@@ -290,3 +290,9 @@ ul {
   transform: translateY(-0.1875rem);
   background-color: var(--clr-electric-indigo-transparent);
 }
+
+/* CONDITIONAL RENDERING CLASSES */
+
+.product-item > button.remove-bg {
+  background-color: var(--clr-poppy-red);
+}
