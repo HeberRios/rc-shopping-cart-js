@@ -1,6 +1,4 @@
-// We also create an initial state for the cart
-
-const cartInitialState = [];
+export const cartInitialState = [];
 
 const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
@@ -55,13 +53,9 @@ const STATE_UPDATE_BY_ACTION = {
 };
 
 export function cartReducer(state, actionObj) {
-  //  we get the action type from the action obj
   const { type: actionType } = actionObj;
 
-  // we get the action to be performed depending on the action type
   const updateState = STATE_UPDATE_BY_ACTION[actionType];
 
-  // if the action exists in the STATE_UPDATE_BY_ACTION object we pass
-  // the state and the action object for the use of the action method
   return updateState ? updateState(state, actionObj) : state;
 }
