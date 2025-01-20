@@ -1,10 +1,8 @@
 import { createContext } from 'react';
 import { useCartReducer } from '../hooks/useCartReducer';
 
-// create the context
-const CartContext = createContext();
+export const CartContext = createContext();
 
-// create the context provider
 
 export function CartProvider({ children }) {
   const {

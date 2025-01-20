@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import './app.css';
 import { useFilters } from './hooks/useFilters.js';
 import { Cart } from './components/Cart.jsx';
+import { CartProvider } from './context/cart.jsx';
 
 const initialProducts = await getAllProducts();
 
@@ -13,11 +14,11 @@ function App() {
   const filteredProducts = filterProducts(initialProducts);
 
   return (
-    <>
+    <CartProvider>
       <Header />
-      <Cart/>
+      <Cart />
       <Products products={filteredProducts} />
-    </>
+    </CartProvider>
   );
 }
 
