@@ -7,7 +7,14 @@ import {
 } from './Icons';
 import { useCart } from '../hooks/useCart';
 
-function CartItem({ thumbnail, title, price, quantity, addToCart }) {
+function CartItem({
+  thumbnail,
+  title,
+  price,
+  quantity,
+  addToCart,
+  removeUnitFromCart,
+}) {
   return (
     <li className='cart-item'>
       <img src={thumbnail} alt={title} />
@@ -17,7 +24,7 @@ function CartItem({ thumbnail, title, price, quantity, addToCart }) {
       <span className='product-price'>{price}</span>
 
       <footer>
-        <button className='btn remove-to-cart-btn'>
+        <button className='btn remove-to-cart-btn' onClick={removeUnitFromCart}>
           <RemoveFromCartIcon />
         </button>
 
@@ -36,7 +43,7 @@ function CartItem({ thumbnail, title, price, quantity, addToCart }) {
 
 export function Cart() {
   const cartCheckboxId = useId();
-  const { cart, addToCart, clearCart } = useCart();
+  const { cart, addToCart, removeUnitFromCart, clearCart } = useCart();
 
   return (
     <>
@@ -60,6 +67,9 @@ export function Cart() {
                 {...product}
                 addToCart={function () {
                   addToCart(product);
+                }}
+                removeUnitFromCart={function () {
+                  removeUnitFromCart(product);
                 }}
               />
             );

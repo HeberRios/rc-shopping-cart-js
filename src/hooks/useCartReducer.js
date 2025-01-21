@@ -8,6 +8,10 @@ export function useCartReducer() {
     return dispatch({ type: 'ADD_TO_CART', payload: product });
   }
 
+  function removeUnitFromCart(product) {
+    return dispatch({ type: 'REMOVE_UNIT_FROM_CART', payload: product });
+  }
+
   function removeFromCart(product) {
     return dispatch({ type: 'REMOVE_FROM_CART', payload: product });
   }
@@ -16,5 +20,5 @@ export function useCartReducer() {
     return dispatch({ type: 'CLEAR_CART' });
   }
 
-  return { state, addToCart, removeFromCart, clearCart };
+  return { state, addToCart, removeUnitFromCart, removeFromCart, clearCart };
 }
