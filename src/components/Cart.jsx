@@ -1,5 +1,10 @@
 import { useId } from 'react';
-import { AddToCartIcon, CartIcon, RemoveFromCartIcon } from './Icons';
+import {
+  AddToCartIcon,
+  CartIcon,
+  ClearCartIcon,
+  RemoveFromCartIcon,
+} from './Icons';
 import { useCart } from '../hooks/useCart';
 
 function CartItem({ thumbnail, title, price, quantity, addToCart }) {
@@ -31,7 +36,7 @@ function CartItem({ thumbnail, title, price, quantity, addToCart }) {
 
 export function Cart() {
   const cartCheckboxId = useId();
-  const { cart, addToCart, removeFromCart, clearCart } = useCart();
+  const { cart, addToCart, clearCart } = useCart();
 
   return (
     <>
@@ -47,7 +52,7 @@ export function Cart() {
       />
 
       <aside className='cart'>
-        <ul>
+        <ul className='cart-product-list'>
           {cart.map(function (product) {
             return (
               <CartItem
@@ -62,6 +67,15 @@ export function Cart() {
             );
           })}
         </ul>
+
+        <button
+          className='btn clear-cart-btn'
+          onClick={function () {
+            clearCart();
+          }}
+        >
+          <ClearCartIcon />
+        </button>
       </aside>
     </>
   );

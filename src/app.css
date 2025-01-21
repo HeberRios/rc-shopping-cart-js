@@ -210,6 +210,7 @@ ul {
   background-color: var(--clr-electric-indigo);
   border-radius: 50%;
   z-index: 999;
+  transition: all 0.4s;
 }
 
 .cart-label-icon:hover {
@@ -223,7 +224,30 @@ ul {
 }
 
 .cart-check-box:checked ~ .cart {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cart-product-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: scroll;
+}
+
+.clear-cart-btn {
+  background-color: var(--clr-poppy-red);
+  padding: 0.75rem;
+  border-radius: 50%;
+}
+
+.clear-cart-btn:hover {
+  scale: 1.125;
+  cursor: pointer;
+  background-color: var(--clr-poppy-red-transparent);
 }
 
 /* CART ITEM STYLES */
