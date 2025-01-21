@@ -191,7 +191,8 @@ ul {
   width: 250px;
   height: 100%;
   background-color: var(--clr-very-dark-purple);
-  border-left: solid 2px var(--clr-platinum);
+  border: solid var(--clr-platinum);
+  border-width: 2px 0 2px 2px;
   display: none;
   padding: 1.5rem;
   padding-top: 4.75rem;

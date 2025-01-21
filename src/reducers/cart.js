@@ -1,4 +1,9 @@
-export const cartInitialState = [];
+export const cartInitialState =
+  JSON.parse(window.localStorage.getItem('cart')) || [];
+
+function updateLocalStorage(state) {
+  window.localStorage.setItem('cart', JSON.stringify(state));
+}
 
 const CART_ACTION_TYPES = {
   ADD_TO_CART: 'ADD_TO_CART',
@@ -26,11 +31,13 @@ const STATE_UPDATE_BY_ACTION = {
         ...state.slice(productInCartIndex + 1),
       ];
 
+      updateLocalStorage(newState);
       return newState;
     }
 
     const newState = [...state, { ...actionObj.payload, quantity: 1 }];
 
+    updateLocalStorage(newState);
     return newState;
   },
 
@@ -41,13 +48,12 @@ const STATE_UPDATE_BY_ACTION = {
       return item.id !== id;
     });
 
-    // all the products that do not have the same id as the product we want to remove,
-    // will be added to the new array
-
+    updateLocalStorage(newState);
     return newState;
   },
 
   [CART_ACTION_TYPES.CLEAR_CART]: function () {
+    updateLocalStorage([]);
     return [];
   },
 };

@@ -57,13 +57,11 @@ export function Cart() {
             return (
               <CartItem
                 key={product.id}
-                // here we are spreading the product properties to be received
-                // as the properties for our cart component
                 {...product}
                 addToCart={function () {
                   addToCart(product);
                 }}
-              ></CartItem>
+              />
             );
           })}
         </ul>
