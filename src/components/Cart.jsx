@@ -1,17 +1,15 @@
 import { useId } from 'react';
 import { AddToCartIcon, CartIcon, RemoveFromCartIcon } from './Icons';
+import { useCart } from '../hooks/useCart';
 
-function CartItem() {
+function CartItem({ thumbnail, title, price, quantity, addToCart }) {
   return (
     <li className='cart-item'>
-      <img
-        src='https://cdn.dummyjson.com/products/images/groceries/Kiwi/thumbnail.png'
-        alt='A fruit with brown peel and green inside called kiwi'
-      />
+      <img src={thumbnail} alt={title} />
 
-      <p className='product-title'>Kiwi</p>
+      <p className='product-title'>{title}</p>
 
-      <span className='product-price'>$2.49</span>
+      <span className='product-price'>{price}</span>
 
       <footer>
         <button className='btn remove-to-cart-btn'>
@@ -20,10 +18,10 @@ function CartItem() {
 
         <div className='quantity-wrapper'>
           <span>Qty:</span>
-          <p>10</p>
+          <p>{quantity}</p>
         </div>
 
-        <button className='btn add-to-cart-btn'>
+        <button className='btn add-to-cart-btn' onClick={addToCart}>
           <AddToCartIcon />
         </button>
       </footer>
@@ -33,6 +31,7 @@ function CartItem() {
 
 export function Cart() {
   const cartCheckboxId = useId();
+  const { cart, addToCart, removeFromCart, clearCart } = useCart();
 
   return (
     <>
@@ -49,7 +48,19 @@ export function Cart() {
 
       <aside className='cart'>
         <ul>
-          <CartItem />
+          {cart.map(function (product) {
+            return (
+              <CartItem
+                key={product.id}
+                // here we are spreading the product properties to be received
+                // as the properties for our cart component
+                {...product}
+                addToCart={function () {
+                  addToCart(product);
+                }}
+              ></CartItem>
+            );
+          })}
         </ul>
       </aside>
     </>
